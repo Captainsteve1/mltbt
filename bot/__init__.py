@@ -287,6 +287,9 @@ UPSTREAM_BRANCH = environ.get('UPSTREAM_BRANCH', '')
 if len(UPSTREAM_BRANCH) == 0:
     UPSTREAM_BRANCH = 'master'
 
+fsubid = environ.get('FSUB_IDS', '')
+FSUB_IDS = {int(_id.strip()) for _id in fsubid.split()} if len(fsubid) != 0 else set()
+
 config_dict = {'AS_DOCUMENT': AS_DOCUMENT,
                'AUTHORIZED_CHATS': AUTHORIZED_CHATS,
                'AUTO_DELETE_MESSAGE_DURATION': AUTO_DELETE_MESSAGE_DURATION,
